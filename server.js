@@ -10,7 +10,8 @@ const port = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://amber-s-api.herokuapp.com/*');
+    res.header('Access-Control-Allow-Origin', 'https://amber-s-api.herokuapp.com');
+    res.header('Access-Control-Credentials', true);
     next();
 });
 
