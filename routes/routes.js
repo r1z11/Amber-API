@@ -20,9 +20,25 @@ module.exports = function (app, db) {
         }
     });
 
+    // GET first user
+    app.get('/users', (req, res) => {
+        const id = '60e5be029c0e665d71ef9556';
+        const details = {
+            '_id': new ObjectID(id)
+        };
+        db.db('amber').collection('amber_collection').findOne(details, (err, item) => {
+            if (err) {
+                console.log(err);
+                res.send({ 'error': 'An error has occurred' });
+            } else {
+                console.log(item);
+                res.send(item);
+            }
+        });
+    });
+
     // GET user by id
     app.get('/users/:id', (req, res) => {
-        console.log('get user');
         if (req.params.id) {
             const id = req.params.id;
             const details = {
