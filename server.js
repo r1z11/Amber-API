@@ -11,7 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
-    res.setHeader("Access-Control-Allow-Methods", "PUT,GET,DELETE,PATCH");
+    // res.setHeader("Access-Control-Allow-Methods", "PUT,GET,DELETE,PATCH");
+    res.setHeader("Access-Control-Allow-Methods", "GET,POST");
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Origin,Accept,Authorization');
     next();
